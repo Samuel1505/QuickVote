@@ -16,13 +16,13 @@ if (!projectId) {
 
 // Set up metadata
 const metadata = {
-  name: 'appkit-example',
-  description: 'AppKit Example',
-  url: 'https://appkitexampleapp.com', // origin must match your domain & subdomain
+  name: 'QuickVote',
+  description: 'Decentralized Voting Platform - Make voting accessible anytime, everywhere',
+  url: 'https://quickvote.com',
   icons: ['https://avatars.githubusercontent.com/u/179229932']
 }
 
-// Create the modal
+// Create the modal with purple theme
 const modal = createAppKit({
   adapters: [wagmiAdapter],
   projectId,
@@ -31,6 +31,13 @@ const modal = createAppKit({
   metadata: metadata,
   features: {
     analytics: true // Optional - defaults to your Cloud configuration
+  },
+  themeMode: 'light',
+  themeVariables: {
+    '--w3m-color-mix': '#591a97',
+    '--w3m-accent': '#591a97',
+    '--w3m-color-mix-strength': 40,
+    '--w3m-border-radius-master': '8px'
   }
 })
 

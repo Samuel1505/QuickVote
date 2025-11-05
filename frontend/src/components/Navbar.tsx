@@ -45,7 +45,7 @@ export function Navbar() {
           <Button 
             className="bg-(--purple-primary) hover:bg-(--purple-deep) text-white"
           >
-            Connect Wallet
+            <appkit-button />
           </Button>
         </div>
       </div>

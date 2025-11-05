@@ -1,7 +1,11 @@
 // SPDX-License-Identifier: UNLICENSED
 pragma solidity ^0.8.14;
 
-contract VotingContract {
+import "@openzeppelin/contracts/access/AccessControl.sol";
+
+contract VotingContract is AccessControl {
+    bytes32 public constant REGISTRAR_ROLE = keccak256("REGISTRAR_ROLE");
+
     event ContenderRegistered(
         address indexed contender,
         string code
@@ -18,7 +22,11 @@ contract VotingContract {
         uint32 highestVotes
     );
 
-    address public immutable registrar;
+    event RegistrarRoleTransferred(
+        address indexed previousRegistrar,
+        address indexed newRegistrar
+    );
+
     uint256 public votingStartTime;
     uint256 public votingEndTime;
     uint256 public constant VOTING_DURATION = 7 days;
@@ -39,7 +47,7 @@ contract VotingContract {
     mapping(address => ContDetails) public contenderDetails;
 
     modifier onlyRegistrar() {
-        require(msg.sender == registrar, "Only registrar can call this");
+        require(hasRole(REGISTRAR_ROLE, msg.sender), "Only registrar can call this");
         _;
     }
 
@@ -56,7 +64,8 @@ contract VotingContract {
     }
 
     constructor() {
-        registrar = msg.sender;
+        _grantRole(DEFAULT_ADMIN_ROLE, msg.sender);
+        _grantRole(REGISTRAR_ROLE, msg.sender);
     }
 
     // Register a single contender
@@ -155,6 +164,20 @@ contract VotingContract {
         emit VotingEnded(finalWinners, highestVotes);
     }
 
+    // Transfer the registrar role to a new address
+    function transferRegistrarRole(address newRegistrar) public onlyRegistrar {
+        require(newRegistrar != address(0), "New registrar cannot be zero address");
+        require(newRegistrar != msg.sender, "Cannot transfer to self");
+
+        // Grant the role to the new registrar
+        _grantRole(REGISTRAR_ROLE, newRegistrar);
+
+        // Revoke the role from the current holder
+        _revokeRole(REGISTRAR_ROLE, msg.sender);
+
+        emit RegistrarRoleTransferred(msg.sender, newRegistrar);
+    }
+
     // Get contender details by code
     function getContender(string memory code) public view returns(ContDetails memory) {
         address cont = codeToAddress[code];
@@ -228,5 +251,10 @@ contract VotingContract {
             return 0;
         }
         return votingEndTime - block.timestamp;
+    }
+
+    // Overrides required by Solidity
+    function supportsInterface(bytes4 interfaceId) public view override(AccessControl) returns (bool) {
+        return super.supportsInterface(interfaceId);
     }
 }

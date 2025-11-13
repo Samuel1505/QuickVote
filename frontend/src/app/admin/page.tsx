@@ -4,6 +4,7 @@ import { Navbar } from '@/components/Navbar'
 import { Footer } from '@/components/Footer'
 import { WalletGuard } from '@/components/shared/WalletGuard'
 import { RegisterContenderForm } from '@/components/admin/RegisterContenderForm'
+import { AdminContenderItem } from '@/components/admin/AdminContenderItem'
 import { useIsRegistrar } from '@/hooks/useIsRegistrar'
 import { useContenders } from '@/hooks/useContenders'
 import { Shield, Users, TrendingUp, AlertTriangle } from 'lucide-react'
@@ -115,24 +116,11 @@ export default function AdminPage() {
               ) : (
                 <div className="space-y-3">
                   {contenders.map((contender, index) => (
-                    <div 
+                    <AdminContenderItem
                       key={contender.contenderAddress}
-                      className="flex items-center justify-between p-4 rounded-xl bg-gray-50 hover:bg-gray-100 transition-colors"
-                    >
-                      <div className="flex items-center gap-4">
-                        <div className="w-10 h-10 rounded-full bg-gradient-to-br from-(--purple-primary) to-(--purple-light) flex items-center justify-center">
-                          <span className="text-white font-bold text-sm">#{index + 1}</span>
-                        </div>
-                        <div>
-                          <p className="font-bold text-(--purple-deep)">{contender.code}</p>
-                          <p className="text-xs text-gray-500 font-mono">{contender.contenderAddress}</p>
-                        </div>
-                      </div>
-                      <div className="text-right">
-                        <p className="text-2xl font-bold text-(--purple-primary)">{contender.voteCount.toString()}</p>
-                        <p className="text-xs text-gray-600">votes</p>
-                      </div>
-                    </div>
+                      address={contender.contenderAddress}
+                      index={index}
+                    />
                   ))}
                 </div>
               )}

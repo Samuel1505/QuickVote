@@ -1,5 +1,5 @@
-// Contract configuration
-export const VOTING_CONTRACT_ADDRESS = "0xB59465C322EDAEabA60D2853C8C7B2f15CBA12c3"
+//app/contracts/VotingContract.ts
+export const VOTING_CONTRACT_ADDRESS = "0xc337F4671B487aB7185062140EA6CFFF0424AD26"
 
 // Minimal ABI for checking registrar role
 export const VOTING_CONTRACT_ABI = [

@@ -3,6 +3,7 @@
 import { Navbar } from '@/components/Navbar'
 import { Footer } from '@/components/Footer'
 import { WalletGuard } from '@/components/shared/WalletGuard'
+import { ContenderList } from '@/components/contender/ContenderList'
 import { useContenders } from '@/hooks/useContenders'
 import { Users, Award, TrendingUp } from 'lucide-react'
 import type { Address } from 'viem'
@@ -81,68 +82,8 @@ export default function ContenderPage() {
                 <p className="text-gray-600">No candidates have been registered for this election.</p>
               </div>
             ) : (
-              <div className="space-y-4">
-                {sortedContenders.map((contender, index) => {
-                  const percentage = getPercentage(contender.voteCount)
-                  const isLeading = index === 0 && contender.voteCount > 0
+              <ContenderList />
 
-                  return (
-                    <div 
-                      key={contender.contenderAddress}
-                      className="group relative p-6 rounded-2xl bg-white border-2 border-gray-100 hover:border-(--purple-primary)/30 transition-all duration-300 hover:shadow-xl"
-                    >
-                      <div className="flex items-center gap-6">
-                        {/* Rank Badge */}
-                        <div className={`flex-shrink-0 w-16 h-16 rounded-full flex items-center justify-center font-bold text-2xl ${
-                          isLeading 
-                            ? 'bg-gradient-to-br from-yellow-400 to-orange-500 text-white' 
-                            : 'bg-gray-100 text-gray-600'
-                        }`}>
-                          {isLeading ? <Award className="w-8 h-8" /> : `#${index + 1}`}
-                        </div>
-
-                        {/* Candidate Info */}
-                        <div className="flex-1 min-w-0">
-                          <div className="flex items-center gap-3 mb-2">
-                            <h3 className="text-2xl font-bold text-(--purple-deep)">{contender.code}</h3>
-                            {isLeading && (
-                              <span className="px-3 py-1 bg-gradient-to-r from-yellow-400 to-orange-500 text-white text-xs font-bold rounded-full">
-                                LEADING
-                              </span>
-                            )}
-                          </div>
-                          <p className="text-sm text-gray-500 font-mono mb-4">
-                            {formatAddress(contender.contenderAddress)}
-                          </p>
-
-                          {/* Vote Progress */}
-                          <div className="space-y-2">
-                            <div className="flex items-center justify-between text-sm">
-                              <span className="text-gray-600">Vote Count</span>
-                              <span className="font-bold text-(--purple-primary)">
-                                {contender.voteCount.toString()} votes ({percentage}%)
-                              </span>
-                            </div>
-                            <div className="w-full h-3 bg-gray-100 rounded-full overflow-hidden">
-                              <div 
-                                className={`h-full transition-all duration-500 ${
-                                  isLeading 
-                                    ? 'bg-gradient-to-r from-yellow-400 to-orange-500' 
-                                    : 'bg-gradient-to-r from-(--purple-primary) to-(--purple-light)'
-                                }`}
-                                style={{ width: `${percentage}%` }}
-                              />
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-
-                      {/* Decorative Corner */}
-                      <div className="absolute top-0 right-0 w-24 h-24 bg-gradient-to-br from-(--purple-light)/5 to-transparent rounded-bl-full -z-10" />
-                    </div>
-                  )
-                })}
-              </div>
             )}
           </WalletGuard>
         </div>

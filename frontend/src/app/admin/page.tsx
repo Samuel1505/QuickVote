@@ -86,7 +86,7 @@ export default function AdminPage() {
                   <TrendingUp className="w-16 h-16 text-white/30" />
                 </div>
               </div>
-              <div className="p-8 rounded-2xl bg-gradient-to-br from-(--purple-lighter) to-(--purple-bg) text-(--purple-deep) shadow-xl">
+              <div className="p-8 rounded-2xl bg-gradient-to-br from-purple-lighter to-purple-bg text-purple-deep) shadow-xl">
                 <div className="flex items-center justify-between">
                   <div>
                     <p className="text-(--purple-deep)/70 mb-2 text-sm font-semibold">Avg. Votes</p>

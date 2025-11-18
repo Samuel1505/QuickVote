@@ -28,7 +28,8 @@ describe("VotingContract", function () {
 
   describe("Deployment", function () {
     it("Should set the registrar to the deployer", async function () {
-      expect(await votingContract.registrar()).to.equal(registrar.address);
+      const REGISTRAR_ROLE = await votingContract.REGISTRAR_ROLE();
+      expect(await votingContract.hasRole(REGISTRAR_ROLE, registrar.address)).to.be.true;
     });
 
     it("Should initialize voting as not active and not ended", async function () {
@@ -49,7 +50,7 @@ describe("VotingContract", function () {
       const details = await votingContract.getContenderByAddress(contender1.address);
       expect(details.exists).to.be.true;
       expect(details.code).to.equal(code1);
-      expect(details.votersNo).to.equal(0);
+      expect(details.votersNo).to.equal(0n);
     });
 
     it("Should revert if non-registrar tries to register a contender", async function () {
@@ -149,7 +150,7 @@ describe("VotingContract", function () {
 
         expect(await votingContract.votingActive()).to.be.true;
         expect(startTimeAfter).to.be.gt(0n);
-        expect(endTime).to.equal(startTimeAfter + votingDuration);
+        expect(endTime).to.equal(BigInt(startTimeAfter) + votingDuration);
       });
 
       it("Should revert if non-registrar tries to start voting", async function () {
@@ -290,7 +291,7 @@ describe("VotingContract", function () {
       expect(winners.length).to.equal(2);
       expect(winners[0]).to.equal(contender1.address);
       expect(winners[1]).to.equal(contender2.address);
-      expect(highest).to.equal(1);
+      expect(highest).to.equal(1n);
     });
 
     it("Should return correct winners via getWinners after ending", async function () {
@@ -305,7 +306,7 @@ describe("VotingContract", function () {
       const [winners, highest] = await votingContract.getWinners();
       expect(winners.length).to.equal(1);
       expect(winners[0]).to.equal(contender1.address);
-      expect(highest).to.equal(2);
+      expect(highest).to.equal(2n);
     });
 
     it("Should revert getWinners if voting not ended", async function () {
@@ -322,7 +323,7 @@ describe("VotingContract", function () {
       const details = await votingContract.getContender(code1);
       expect(details.exists).to.be.true;
       expect(details.code).to.equal(code1);
-      expect(details.votersNo).to.equal(0);
+      expect(details.votersNo).to.equal(0n);
     });
 
     it("Should revert getContender with invalid code", async function () {
@@ -335,7 +336,7 @@ describe("VotingContract", function () {
       const details = await votingContract.getContenderByAddress(contender1.address);
       expect(details.exists).to.be.true;
       expect(details.code).to.equal(code1);
-      expect(details.votersNo).to.equal(0);
+      expect(details.votersNo).to.equal(0n);
     });
 
     it("Should revert getContenderByAddress with invalid address", async function () {
@@ -359,8 +360,8 @@ describe("VotingContract", function () {
 
       const [addresses, votes] = await votingContract.getVoteCounts();
       expect(addresses.length).to.equal(2);
-      expect(votes[0]).to.equal(1); // contender1
-      expect(votes[1]).to.equal(0); // contender2
+      expect(votes[0]).to.equal(1n); // contender1
+      expect(votes[1]).to.equal(0n); // contender2
     });
 
     it("Should check if voting has expired", async function () {
@@ -379,7 +380,7 @@ describe("VotingContract", function () {
 
       await ethers.provider.send("evm_increaseTime", [Number(votingDuration)]);
       await ethers.provider.send("evm_mine");
-      expect(await votingContract.getTimeRemaining()).to.equal(0n);
+      expect(BigInt(await votingContract.getTimeRemaining())).to.equal(0n);
     });
   });
 });

@@ -110,22 +110,7 @@ contract VotingContract is AccessControl {
     }
 
     // Cast a vote
-    function vote(string memory code) public votingIsActive {
-        address sender = msg.sender;
-        require(!voted[sender], "User already voted");
-        
-        address contender = codeToAddress[code];
-        require(contender != address(0), "Invalid contender code");
-        require(contenderDetails[contender].exists, "Contender does not exist");
 
-        voted[sender] = true;
-        voterToContender[sender] = contender;
-        
-        ContDetails storage m = contenderDetails[contender];
-        m.votersNo += 1;
-        
-        emit VoteSuccess(sender, contender, code);
-    }
 
     // End voting and determine winners
     function endVoting() public onlyRegistrar {

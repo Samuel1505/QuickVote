@@ -88,7 +88,17 @@ contract VotingContract is AccessControl {
     }
 
     // Register multiple contenders at once
+    function registerMultipleContenders(
+        address[] memory contenders, 
+        string[] memory codes
+    ) public onlyRegistrar votingNotStarted {
+        require(contenders.length == codes.length, "Arrays length mismatch");
+        require(contenders.length > 0, "No contenders provided");
 
+        for (uint256 i = 0; i < contenders.length; i++) {
+            registerContender(contenders[i], codes[i]);
+        }
+    }
 
     // Start the voting process
     function startVoting() public onlyRegistrar votingNotStarted {

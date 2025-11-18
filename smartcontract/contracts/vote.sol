@@ -130,7 +130,7 @@ contract VotingContract is AccessControl {
     // End voting and determine winners
     function endVoting() public onlyRegistrar {
         require(votingActive, "Voting is not active");
-        require(block.timestamp > votingEndTime || votingEnded, "Voting period not ended");
+        require(block.timestamp > votingEndTime, "Voting period not ended");
         
         votingActive = false;
         votingEnded = true;

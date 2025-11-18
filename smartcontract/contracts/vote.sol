@@ -101,13 +101,7 @@ contract VotingContract is AccessControl {
     }
 
     // Start the voting process
-    function startVoting() public onlyRegistrar votingNotStarted {
-        require(contendersList.length > 0, "No contenders registered");
-        
-        votingActive = true;
-        votingStartTime = block.timestamp;
-        votingEndTime = block.timestamp + VOTING_DURATION;
-    }
+
 
     // Cast a vote
     function vote(string memory code) public votingIsActive {

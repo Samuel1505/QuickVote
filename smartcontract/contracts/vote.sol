@@ -128,41 +128,7 @@ contract VotingContract is AccessControl {
     }
 
     // End voting and determine winners
-    function endVoting() public onlyRegistrar {
-        require(votingActive, "Voting is not active");
-        require(block.timestamp > votingEndTime || votingEnded, "Voting period not ended");
-        
-        votingActive = false;
-        votingEnded = true;
-
-        // Find highest vote count
-        uint32 highestVotes = 0;
-        for (uint256 i = 0; i < contendersList.length; i++) {
-            uint32 votes = contenderDetails[contendersList[i]].votersNo;
-            if (votes > highestVotes) {
-                highestVotes = votes;
-            }
-        }
-
-        // Collect all winners (in case of tie)
-        address[] memory winners = new address[](contendersList.length);
-        uint256 winnerCount = 0;
-        
-        for (uint256 i = 0; i < contendersList.length; i++) {
-            if (contenderDetails[contendersList[i]].votersNo == highestVotes) {
-                winners[winnerCount] = contendersList[i];
-                winnerCount++;
-            }
-        }
-
-        // Resize winners array
-        address[] memory finalWinners = new address[](winnerCount);
-        for (uint256 i = 0; i < winnerCount; i++) {
-            finalWinners[i] = winners[i];
-        }
-
-        emit VotingEnded(finalWinners, highestVotes);
-    }
+   
 
     // Transfer the registrar role to a new address
     function transferRegistrarRole(address newRegistrar) public onlyRegistrar {

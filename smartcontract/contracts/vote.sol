@@ -46,7 +46,22 @@ contract VotingContract is AccessControl {
     mapping(address => address) public voterToContender;
     mapping(address => ContDetails) public contenderDetails;
 
-   
+    modifier onlyRegistrar() {
+        require(hasRole(REGISTRAR_ROLE, msg.sender), "Only registrar can call this");
+        _;
+    }
+
+    modifier votingIsActive() {
+        require(votingActive, "Voting is not active");
+        require(block.timestamp >= votingStartTime, "Voting has not started");
+        require(block.timestamp <= votingEndTime, "Voting period has ended");
+        _;
+    }
+
+    modifier votingNotStarted() {
+        require(!votingActive, "Voting already started");
+        _;
+    }
 
     constructor() {
         _grantRole(DEFAULT_ADMIN_ROLE, msg.sender);

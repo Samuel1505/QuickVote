@@ -164,7 +164,20 @@ contract VotingContract is AccessControl {
         emit VotingEnded(finalWinners, highestVotes);
     }
 
-    
+    // Transfer the registrar role to a new address
+    function transferRegistrarRole(address newRegistrar) public onlyRegistrar {
+        require(newRegistrar != address(0), "New registrar cannot be zero address");
+        require(newRegistrar != msg.sender, "Cannot transfer to self");
+
+        // Grant the role to the new registrar
+        _grantRole(REGISTRAR_ROLE, newRegistrar);
+
+        // Revoke the role from the current holder
+        _revokeRole(REGISTRAR_ROLE, msg.sender);
+
+        emit RegistrarRoleTransferred(msg.sender, newRegistrar);
+    }
+
     // Get contender details by code
     function getContender(string memory code) public view returns(ContDetails memory) {
         address cont = codeToAddress[code];

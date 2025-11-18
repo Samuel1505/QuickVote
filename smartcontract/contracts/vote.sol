@@ -69,7 +69,23 @@ contract VotingContract is AccessControl {
     }
 
     // Register a single contender
+    function registerContender(address cont, string memory code) public onlyRegistrar votingNotStarted {
+        require(cont != address(0), "Invalid contender address");
+        require(bytes(code).length > 0, "Code cannot be empty");
+        require(codeToAddress[code] == address(0), "Code already exists");
+        require(!contenderDetails[cont].exists, "Contender already registered");
 
+        codeToAddress[code] = cont;
+        contendersList.push(cont);
+        
+        ContDetails storage c = contenderDetails[cont];
+        c.contender = cont;
+        c.code = code;
+        c.votersNo = 0;
+        c.exists = true;
+
+        emit ContenderRegistered(cont, code);
+    }
 
     // Register multiple contenders at once
     function registerMultipleContenders(

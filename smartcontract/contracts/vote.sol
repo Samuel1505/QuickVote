@@ -179,7 +179,11 @@ contract VotingContract is AccessControl {
     }
 
     // Get contender details by code
-    
+    function getContender(string memory code) public view returns(ContDetails memory) {
+        address cont = codeToAddress[code];
+        require(cont != address(0), "Contender not found");
+        return contenderDetails[cont];
+    }
 
     // Get contender details by address
     function getContenderByAddress(address cont) public view returns(ContDetails memory) {

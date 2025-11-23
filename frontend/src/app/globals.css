@@ -173,3 +173,17 @@
   line-height: 1.7;
   font-weight: 400;
 }
+
+/* Custom Animations */
+@keyframes shimmer {
+  0% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(100%);
+  }
+}
+
+@utility animate-shimmer {
+  animation: shimmer 2s infinite;
+}

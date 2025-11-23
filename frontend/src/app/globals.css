@@ -9,7 +9,7 @@
   --color-foreground: var(--foreground);
   --font-sans: 'Inter', var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
-  
+
   /* Purple Theme */
   --color-purple-deep: var(--purple-deep);
   --color-purple-primary: var(--purple-primary);
@@ -54,7 +54,7 @@
 
 :root {
   --radius: 0.625rem;
-  
+
   /* Deep Purple Theme Colors */
   --purple-deep: #3f136c;
   --purple-primary: #591a97;
@@ -62,9 +62,6 @@
   --purple-light: #8c3bdc;
   --purple-lighter: #a567e4;
   --purple-bg: #f2ebf8;
-  
-  --background: oklch(1 0 0);
-  --foreground: oklch(0.145 0 0);
   --card: oklch(1 0 0);
   --card-foreground: oklch(0.145 0 0);
   --popover: oklch(1 0 0);
@@ -94,6 +91,8 @@
   --sidebar-accent-foreground: oklch(0.205 0 0);
   --sidebar-border: oklch(0.922 0 0);
   --sidebar-ring: oklch(0.708 0 0);
+  --background: oklch(1 0 0);
+  --foreground: oklch(0.145 0 0);
 }
 
 .dark {
@@ -172,4 +171,18 @@
   font-size: 1rem;
   line-height: 1.7;
   font-weight: 400;
+}
+
+/* Custom Animations */
+@keyframes shimmer {
+  0% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(100%);
+  }
+}
+
+@utility animate-shimmer {
+  animation: shimmer 2s infinite;
 }

@@ -10,7 +10,7 @@ export function useVoteStatus() {
   const { data: hasVoted, isLoading, refetch } = useReadContract({
     address: VOTING_CONTRACT_ADDRESS,
     abi: VOTING_CONTRACT_ABI,
-    functionName: 'hasVoted',
+    functionName: 'voted',
     args: address ? [address] : undefined,
     query: {
       enabled: Boolean(address && isConnected)

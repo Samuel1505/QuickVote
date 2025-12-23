@@ -31,7 +31,7 @@ export default function VotePage() {
   }
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-(--purple-bg) via-white to-(--purple-bg)">
+    <div className="min-h-screen bg-linear-to-br from-purple-bg via-white to-purple-bg">
       <Navbar />
       
       <main className="pt-24 pb-16">
@@ -39,10 +39,10 @@ export default function VotePage() {
           {/* Header */}
           <div className="text-center mb-12">
             <div className="inline-flex items-center gap-2 px-4 py-2 bg-white rounded-full mb-4 shadow-sm">
-              <VoteIcon className="w-5 h-5 text-(--purple-primary)" />
-              <span className="text-sm font-semibold text-(--purple-primary)">CAST YOUR VOTE</span>
+              <VoteIcon className="w-5 h-5 text-purple-primary" />
+              <span className="text-sm font-semibold text-purple-primary">CAST YOUR VOTE</span>
             </div>
-            <h1 className="heading-hero text-(--purple-deep) mb-4">
+            <h1 className="heading-hero text-purple-deep mb-4">
               Vote for Your Candidate
             </h1>
             <p className="text-lead text-gray-600 max-w-2xl mx-auto">
@@ -53,7 +53,7 @@ export default function VotePage() {
           <WalletGuard message="Connect your wallet to view candidates and cast your vote">
             {/* Vote Status Banner */}
             {hasVoted && (
-              <div className="mb-8 p-6 rounded-2xl bg-gradient-to-r from-green-50 to-emerald-50 border-2 border-green-200">
+              <div className="mb-8 p-6 rounded-2xl bg-linear-to-r from-green-50 to-emerald-50 border-2 border-green-200">
                 <div className="flex items-center gap-4">
                   <div className="w-12 h-12 rounded-full bg-green-500 flex items-center justify-center">
                     <CheckCircle className="w-6 h-6 text-white" />
@@ -68,13 +68,13 @@ export default function VotePage() {
 
             {/* Success Message */}
             {isSuccess && (
-              <div className="mb-8 p-6 rounded-2xl bg-gradient-to-r from-(--purple-bg) to-white border-2 border-(--purple-primary)/30">
+              <div className="mb-8 p-6 rounded-2xl bg-linear-to-r from-purple-bg to-white border-2 border-(--purple-primary)/30">
                 <div className="flex items-center gap-4">
-                  <div className="w-12 h-12 rounded-full bg-gradient-to-br from-(--purple-primary) to-(--purple-light) flex items-center justify-center">
+                  <div className="w-12 h-12 rounded-full bg--to-br from-purple-primary to-purple-light flex items-center justify-center">
                     <CheckCircle className="w-6 h-6 text-white" />
                   </div>
                   <div>
-                    <h3 className="font-bold text-(--purple-deep) text-lg">Transaction Successful!</h3>
+                    <h3 className="font-bold text-purple-deep text-lg">Transaction Successful!</h3>
                     <p className="text-gray-700">Your vote has been confirmed on the blockchain.</p>
                   </div>
                 </div>
@@ -83,7 +83,7 @@ export default function VotePage() {
 
             {/* Error Message */}
             {error && (
-              <div className="mb-8 p-6 rounded-2xl bg-gradient-to-r from-red-50 to-pink-50 border-2 border-red-200">
+              <div className="mb-8 p-6 rounded-2xl bg-linear-to-r from-red-50 to-pink-50 border-2 border-red-200">
                 <div className="flex items-center gap-4">
                   <div className="w-12 h-12 rounded-full bg-red-500 flex items-center justify-center">
                     <AlertCircle className="w-6 h-6 text-white" />
@@ -101,19 +101,19 @@ export default function VotePage() {
               <div className="p-6 rounded-2xl bg-white border-2 border-gray-100 shadow-sm">
                 <div className="text-center">
                   <p className="text-sm font-medium text-gray-600 mb-2">Total Candidates</p>
-                  <p className="text-4xl font-bold text-(--purple-primary)">{contenders.length}</p>
+                  <p className="text-4xl font-bold text-purple-primary">{contenders.length}</p>
                 </div>
               </div>
               <div className="p-6 rounded-2xl bg-white border-2 border-gray-100 shadow-sm">
                 <div className="text-center">
                   <p className="text-sm font-medium text-gray-600 mb-2">Total Votes Cast</p>
-                  <p className="text-4xl font-bold text-(--purple-primary)">{totalVotes.toString()}</p>
+                  <p className="text-4xl font-bold text-purple-primary">{totalVotes.toString()}</p>
                 </div>
               </div>
               <div className="p-6 rounded-2xl bg-white border-2 border-gray-100 shadow-sm">
                 <div className="text-center">
                   <p className="text-sm font-medium text-gray-600 mb-2">Your Status</p>
-                  <p className="text-2xl font-bold text-(--purple-primary)">
+                  <p className="text-2xl font-bold text-purple-primary">
                     {hasVoted ? '✓ Voted' : 'Not Voted'}
                   </p>
                 </div>
@@ -123,7 +123,7 @@ export default function VotePage() {
             {/* Loading State */}
             {loadingContenders || loadingVoteStatus ? (
               <div className="text-center py-20">
-                <div className="inline-block w-16 h-16 border-4 border-(--purple-primary) border-t-transparent rounded-full animate-spin" />
+                <div className="inline-block w-16 h-16 border-4 border-purple-primary border-t-transparent rounded-full animate-spin" />
                 <p className="mt-4 text-gray-600">Loading candidates...</p>
               </div>
             ) : contenders.length === 0 ? (

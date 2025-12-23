@@ -48,9 +48,9 @@ function ContenderItem({ address, index, totalVotes }: ContenderItemProps) {
     <div className="group relative p-6 rounded-2xl bg-white border-2 border-gray-100 hover:border-(--purple-primary)/30 transition-all duration-300 hover:shadow-xl">
       <div className="flex items-center gap-6">
         {/* Rank Badge */}
-        <div className={`flex-shrink-0 w-16 h-16 rounded-full flex items-center justify-center font-bold text-2xl ${
+        <div className={`shrink-0 w-16 h-16 rounded-full flex items-center justify-center font-bold text-2xl ${
           isLeading 
-            ? 'bg-gradient-to-br from-yellow-400 to-orange-500 text-white' 
+            ? 'bg-linear-to-br from-yellow-400 to-orange-500 text-white' 
             : 'bg-gray-100 text-gray-600'
         }`}>
           {isLeading ? <Award className="w-8 h-8" /> : `#${index + 1}`}
@@ -61,7 +61,7 @@ function ContenderItem({ address, index, totalVotes }: ContenderItemProps) {
           <div className="flex items-center gap-3 mb-2">
             <h3 className="text-2xl font-bold text-purple-deep">{code}</h3>
             {isLeading && (
-              <span className="px-3 py-1 bg-gradient-to-r from-yellow-400 to-orange-500 text-white text-xs font-bold rounded-full">
+              <span className="px-3 py-1 bg-linear-to-r from-yellow-400 to-orange-500 text-white text-xs font-bold rounded-full">
                 LEADING
               </span>
             )}
@@ -82,8 +82,8 @@ function ContenderItem({ address, index, totalVotes }: ContenderItemProps) {
               <div 
                 className={`h-full transition-all duration-500 ${
                   isLeading 
-                    ? 'bg-gradient-to-r from-yellow-400 to-orange-500' 
-                    : 'bg-gradient-to-r from-purple-primary to-purple-light'
+                    ? 'bg-linear-to-r from-yellow-400 to-orange-500' 
+                    : 'bg-linear-to-r from-purple-primary to-purple-light'
                 }`}
                 style={{ width: `${percentage}%` }}
               />
@@ -93,7 +93,7 @@ function ContenderItem({ address, index, totalVotes }: ContenderItemProps) {
       </div>
 
       {/* Decorative Corner */}
-      <div className="absolute top-0 right-0 w-24 h-24 bg-gradient-to-br from-(--purple-light)/5 to-transparent rounded-bl-full -z-10" />
+      <div className="absolute top-0 right-0 w-24 h-24 bg-linear-to-br from-(--purple-light)/5 to-transparent rounded-bl-full -z-10" />
     </div>
   )
 }

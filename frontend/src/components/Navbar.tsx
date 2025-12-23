@@ -34,7 +34,7 @@ export function Navbar() {
             </Link>
             <Link 
               href="/contender" 
-              className="text-gray-700 hover:text-(--purple-primary) font-medium transition-colors"
+              className="text-gray-700 hover:text-purple-primary font-medium transition-colors"
             >
               Contenders
             </Link>

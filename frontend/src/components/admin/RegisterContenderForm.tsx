@@ -68,7 +68,7 @@ export function RegisterContenderForm({ onSuccess }: RegisterContenderFormProps)
   return (
     <div className="p-8 rounded-2xl bg-white border-2 border-gray-100 shadow-sm">
       <div className="flex items-center gap-3 mb-6">
-        <div className="p-3 rounded-xl bg-gradient-to-br from-purple-primary to-purple-light">
+        <div className="p-3 rounded-xl bg-linear-to-br from-purple-primary to-purple-light">
           <UserPlus className="w-6 h-6 text-white" />
         </div>
         <h2 className="text-2xl font-bold text-purple-deep">Register New Candidate</h2>
@@ -116,7 +116,7 @@ export function RegisterContenderForm({ onSuccess }: RegisterContenderFormProps)
         {/* Error Message */}
         {error && (
           <div className="flex items-center gap-2 p-4 rounded-xl bg-red-50 border border-red-200">
-            <XCircle className="w-5 h-5 text-red-500 flex-shrink-0" />
+            <XCircle className="w-5 h-5 text-red-500 shrink-0" />
             <p className="text-sm text-red-700">{error}</p>
           </div>
         )}
@@ -124,7 +124,7 @@ export function RegisterContenderForm({ onSuccess }: RegisterContenderFormProps)
         {/* Success Message */}
         {isSuccess && (
           <div className="flex items-center gap-2 p-4 rounded-xl bg-green-50 border border-green-200">
-            <CheckCircle className="w-5 h-5 text-green-500 flex-shrink-0" />
+            <CheckCircle className="w-5 h-5 text-green-500 shrink-0" />
             <p className="text-sm text-green-700">
               Candidate registered successfully! The list will update shortly.
             </p>
@@ -134,7 +134,7 @@ export function RegisterContenderForm({ onSuccess }: RegisterContenderFormProps)
         {/* Transaction Status */}
         {(isPending || isConfirming) && (
           <div className="flex items-center gap-2 p-4 rounded-xl bg-blue-50 border border-blue-200">
-            <Loader2 className="w-5 h-5 text-blue-500 animate-spin flex-shrink-0" />
+            <Loader2 className="w-5 h-5 text-blue-500 animate-spin shrink-0" />
             <p className="text-sm text-blue-700">
               {isPending && 'Waiting for wallet confirmation...'}
               {isConfirming && 'Transaction confirming...'}
@@ -146,7 +146,7 @@ export function RegisterContenderForm({ onSuccess }: RegisterContenderFormProps)
         <button
           type="submit"
           disabled={isPending || isConfirming || !address}
-          className="w-full px-6 py-4 rounded-xl bg-gradient-to-r from-purple-primary to-purple-light) text-white font-bold hover:shadow-lg transition-all duration-200 disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-2"
+          className="w-full px-6 py-4 rounded-xl bg-linear-to-r from-purple-primary to-purple-light) text-white font-bold hover:shadow-lg transition-all duration-200 disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-2"
         >
           {isPending || isConfirming ? (
             <>

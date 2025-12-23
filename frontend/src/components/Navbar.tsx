@@ -15,7 +15,7 @@ export function Navbar() {
           {/* Logo and Brand Name */}
           <div className="flex items-center gap-2">
             <Vote className="w-8 h-8 text-purple-primary" />
-            <span className="text-xl font-bold text-(--purple-deep)">QuickVote</span>
+            <span className="text-xl font-bold text-purple-deep">QuickVote</span>
           </div>
 
           {/* Navigation Links - Center */}

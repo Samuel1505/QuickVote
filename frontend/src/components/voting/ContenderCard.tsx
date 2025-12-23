@@ -38,11 +38,11 @@ export function ContenderCard({
       {/* Header */}
       <div className="flex items-start justify-between mb-4">
         <div className="flex items-center gap-3">
-          <div className="w-12 h-12 rounded-full bg-gradient-to-br from-(--purple-primary) to-(--purple-light) flex items-center justify-center">
+          <div className="w-12 h-12 rounded-full bg-linear-to-br from-purple-primary to-purple-light flex items-center justify-center">
             <User className="w-6 h-6 text-white" />
           </div>
           <div>
-            <h3 className="font-bold text-(--purple-deep) text-lg">{code}</h3>
+            <h3 className="font-bold text-purple-deep text-lg">{code}</h3>
             <p className="text-sm text-gray-500 font-mono">{formatAddress(contenderAddress)}</p>
           </div>
         </div>
@@ -52,7 +52,7 @@ export function ContenderCard({
       <div className="mb-4">
         <div className="flex items-center justify-between mb-2">
           <span className="text-sm font-medium text-gray-600">Votes</span>
-          <span className="text-lg font-bold text-(--purple-primary)">
+          <span className="text-lg font-bold text-purple-primary">
             {voteCount.toString()} ({percentage}%)
           </span>
         </div>
@@ -60,7 +60,7 @@ export function ContenderCard({
         {/* Progress Bar */}
         <div className="w-full h-2 bg-gray-100 rounded-full overflow-hidden">
           <div 
-            className="h-full bg-gradient-to-r from-(--purple-primary) to-(--purple-light) transition-all duration-500"
+            className="h-full bg-linear-to-r from-purple-primary to-purple-light transition-all duration-500"
             style={{ width: `${percentage}%` }}
           />
         </div>

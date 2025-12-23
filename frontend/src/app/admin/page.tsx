@@ -46,7 +46,7 @@ export default function AdminPage() {
   }
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-(--purple-bg) via-white to-(--purple-bg)">
+    <div className="min-h-screen bg-linear-to-br from-purple-bg via-white to-purple-bg">
       <Navbar />
       
       <main className="pt-24 pb-16">
@@ -54,10 +54,10 @@ export default function AdminPage() {
           {/* Header */}
           <div className="text-center mb-12">
             <div className="inline-flex items-center gap-2 px-4 py-2 bg-white rounded-full mb-4 shadow-sm">
-              <Shield className="w-5 h-5 text-(--purple-primary)" />
-              <span className="text-sm font-semibold text-(--purple-primary)">ADMIN PANEL</span>
+              <Shield className="w-5 h-5 text-purple-primary" />
+              <span className="text-sm font-semibold text-purple-primary">ADMIN PANEL</span>
             </div>
-            <h1 className="heading-hero text-(--purple-deep) mb-4">
+            <h1 className="heading-hero text-purple-deep mb-4">
               Election Management
             </h1>
             <p className="text-lead text-gray-600 max-w-2xl mx-auto">
@@ -68,16 +68,16 @@ export default function AdminPage() {
           <WalletGuard message="Connect your wallet to access the admin panel">
             {/* Stats Overview */}
             <div className="grid md:grid-cols-3 gap-6 mb-12">
-              <div className="p-8 rounded-2xl bg-gradient-to-br from-(--purple-primary) to-(--purple-light) text-white shadow-xl">
+              <div className="p-8 rounded-2xl bg-linear-to-br from-purple-primary to-purple-light text-white shadow-xl">
                 <div className="flex items-center justify-between">
                   <div>
-                    <p className="text-(--purple-bg) mb-2 text-sm font-semibold">Total Candidates</p>
+                    <p className="text-purple-bg mb-2 text-sm font-semibold">Total Candidates</p>
                     <p className="text-5xl font-bold">{contenders.length}</p>
                   </div>
                   <Users className="w-16 h-16 text-white/30" />
                 </div>
               </div>
-              <div className="p-8 rounded-2xl bg-gradient-to-br from-(--purple-light) to-(--purple-lighter) text-white shadow-xl">
+              <div className="p-8 rounded-2xl bg-linear-to-br from-purple-light to-purple-lighter text-white shadow-xl">
                 <div className="flex items-center justify-between">
                   <div>
                     <p className="text-(--purple-bg) mb-2 text-sm font-semibold">Total Votes</p>

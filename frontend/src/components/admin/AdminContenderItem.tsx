@@ -38,16 +38,16 @@ export function AdminContenderItem({ address, index }: AdminContenderItemProps) 
   return (
     <div className="flex items-center justify-between p-4 rounded-xl bg-gray-50 hover:bg-gray-100 transition-colors">
       <div className="flex items-center gap-4">
-        <div className="w-10 h-10 rounded-full bg-gradient-to-br from-(--purple-primary) to-(--purple-light) flex items-center justify-center">
+        <div className="w-10 h-10 rounded-full bg-linear-to-br from-purple-primary to-purple-light flex items-center justify-center">
           <span className="text-white font-bold text-sm">#{index + 1}</span>
         </div>
         <div>
-          <p className="font-bold text-(--purple-deep)">{code}</p>
+          <p className="font-bold text-purple-deep">{code}</p>
           <p className="text-xs text-gray-500 font-mono">{address}</p>
         </div>
       </div>
       <div className="text-right">
-        <p className="text-2xl font-bold text-(--purple-primary)">{votersNo.toString()}</p>
+        <p className="text-2xl font-bold text-purple-primary">{votersNo.toString()}</p>
         <p className="text-xs text-gray-600">votes</p>
       </div>
     </div>

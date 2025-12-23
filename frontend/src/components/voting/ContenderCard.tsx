@@ -70,7 +70,7 @@ export function ContenderCard({
       <Button
         onClick={() => onVote(contenderAddress)}
         disabled={hasVoted || isPending || !isConnected}
-        className="w-full bg-gradient-to-r from-(--purple-primary) to-(--purple-light) hover:from-(--purple-deep) hover:to-(--purple-primary) text-white disabled:opacity-50 disabled:cursor-not-allowed"
+        className="w-full bg-linear-to-r from-purple-primary to-purple-light hover:from-purple-deep hover:to-purple-primary text-white disabled:opacity-50 disabled:cursor-not-allowed"
       >
         {isPending ? (
           'Processing...'
@@ -85,7 +85,7 @@ export function ContenderCard({
       </Button>
 
       {/* Decorative Corner */}
-      <div className="absolute top-0 right-0 w-20 h-20 bg-gradient-to-br from-(--purple-light)/5 to-transparent rounded-bl-full -z-10" />
+      <div className="absolute top-0 right-0 w-20 h-20 bg-linear-to-br from-(--purple-light)/5 to-transparent rounded-bl-full -z-10" />
     </div>
   )
 }

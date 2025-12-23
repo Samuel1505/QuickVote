@@ -14,7 +14,7 @@ export function Navbar() {
         <div className="flex items-center justify-between h-16">
           {/* Logo and Brand Name */}
           <div className="flex items-center gap-2">
-            <Vote className="w-8 h-8 text-(--purple-primary)" />
+            <Vote className="w-8 h-8 text-purple-primary" />
             <span className="text-xl font-bold text-(--purple-deep)">QuickVote</span>
           </div>
 

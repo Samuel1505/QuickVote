@@ -27,7 +27,7 @@ export default function ContenderPage() {
   }
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-(--purple-bg) via-white to-(--purple-bg)">
+    <div className="min-h-screen bg-linear-to-br from-purple-bg via-white to-purple-bg">
       <Navbar />
       
       <main className="pt-24 pb-16">
@@ -35,10 +35,10 @@ export default function ContenderPage() {
           {/* Header */}
           <div className="text-center mb-12">
             <div className="inline-flex items-center gap-2 px-4 py-2 bg-white rounded-full mb-4 shadow-sm">
-              <Users className="w-5 h-5 text-(--purple-primary)" />
-              <span className="text-sm font-semibold text-(--purple-primary)">CANDIDATES</span>
+              <Users className="w-5 h-5 text-purple-primary" />
+              <span className="text-sm font-semibold text-purple-primary">CANDIDATES</span>
             </div>
-            <h1 className="heading-hero text-(--purple-deep) mb-4">
+            <h1 className="heading-hero text-purple-deep mb-4">
               Meet the Candidates
             </h1>
             <p className="text-lead text-gray-600 max-w-2xl mx-auto">
@@ -72,7 +72,7 @@ export default function ContenderPage() {
             {/* Loading State */}
             {isLoading ? (
               <div className="text-center py-20">
-                <div className="inline-block w-16 h-16 border-4 border-(--purple-primary) border-t-transparent rounded-full animate-spin" />
+                <div className="inline-block w-16 h-16 border-4 border-purple-primary border-t-transparent rounded-full animate-spin" />
                 <p className="mt-4 text-gray-600">Loading candidates...</p>
               </div>
             ) : contenders.length === 0 ? (

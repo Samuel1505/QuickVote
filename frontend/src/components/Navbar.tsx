@@ -49,7 +49,7 @@ export function Navbar() {
             {isConnected && isRegistrar && (
               <Link 
                 href="/admin" 
-                className="flex items-center gap-2 text-gray-700 hover:text-(--purple-primary) font-medium transition-colors"
+                className="flex items-center gap-2 text-gray-700 hover:text-purple-primary font-medium transition-colors"
               >
                 <Shield className="w-4 h-4" />
                 Admin

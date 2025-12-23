@@ -26,14 +26,14 @@ export default function AdminPage() {
 
   if (!isRegistrar) {
     return (
-      <div className="min-h-screen bg-gradient-to-br from-(--purple-bg) via-white to-(--purple-bg)">
+      <div className="min-h-screen bg-linear-to-br from-purple-bg via-white to-purple-bg">
         <Navbar />
         <div className="min-h-[60vh] flex items-center justify-center">
           <div className="text-center space-y-6 max-w-md mx-auto px-4">
-            <div className="inline-flex p-6 rounded-full bg-gradient-to-br from-red-500 to-orange-500">
+            <div className="inline-flex p-6 rounded-full bg-linear-to-br from-red-500 to-orange-500">
               <AlertTriangle className="w-12 h-12 text-white" />
             </div>
-            <h2 className="heading-section text-(--purple-deep)">
+            <h2 className="heading-section text-purple-deep">
               Access Denied
             </h2>
             <p className="text-lead text-gray-600">

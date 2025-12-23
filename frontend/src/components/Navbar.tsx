@@ -40,7 +40,7 @@ export function Navbar() {
             </Link>
             <Link 
               href="/result" 
-              className="text-gray-700 hover:text-(--purple-primary) font-medium transition-colors"
+              className="text-gray-700 hover:text-purple-primary font-medium transition-colors"
             >
               Results
             </Link>

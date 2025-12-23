@@ -15,10 +15,10 @@ export default function AdminPage() {
 
   if (loadingRegistrar) {
     return (
-      <div className="min-h-screen bg-linear-to-br from-(--purple-bg) via-white to-(--purple-bg)">
+      <div className="min-h-screen bg-linear-to-br from-purple-bg via-white to-purple-bg">
         <Navbar />
         <div className="min-h-[60vh] flex items-center justify-center">
-          <div className="inline-block w-16 h-16 border-4 border-(--purple-primary) border-t-transparent rounded-full animate-spin" />
+          <div className="inline-block w-16 h-16 border-4 border-purple-primary border-t-transparent rounded-full animate-spin" />
         </div>
       </div>
     )

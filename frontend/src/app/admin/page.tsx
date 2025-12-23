@@ -80,13 +80,13 @@ export default function AdminPage() {
               <div className="p-8 rounded-2xl bg-linear-to-br from-purple-light to-purple-lighter text-white shadow-xl">
                 <div className="flex items-center justify-between">
                   <div>
-                    <p className="text-(--purple-bg) mb-2 text-sm font-semibold">Total Votes</p>
+                    <p className="text-purple-bg mb-2 text-sm font-semibold">Total Votes</p>
                     <p className="text-5xl font-bold">{totalVotes.toString()}</p>
                   </div>
                   <TrendingUp className="w-16 h-16 text-white/30" />
                 </div>
               </div>
-              <div className="p-8 rounded-2xl bg-gradient-to-br from-purple-lighter to-purple-bg text-purple-deep) shadow-xl">
+              <div className="p-8 rounded-2xl bg-linear-to-br from-purple-lighter to-purple-bg text-purple-deep) shadow-xl">
                 <div className="flex items-center justify-between">
                   <div>
                     <p className="text-(--purple-deep)/70 mb-2 text-sm font-semibold">Avg. Votes</p>
@@ -106,7 +106,7 @@ export default function AdminPage() {
 
             {/* Current Candidates */}
             <div className="p-8 rounded-2xl bg-white border-2 border-gray-100 shadow-sm">
-              <h3 className="text-xl font-bold text-(--purple-deep) mb-6">Registered Candidates</h3>
+              <h3 className="text-xl font-bold text-purple-deep mb-6">Registered Candidates</h3>
               
               {contenders.length === 0 ? (
                 <div className="text-center py-12">

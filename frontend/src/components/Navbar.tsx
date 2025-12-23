@@ -28,7 +28,7 @@ export function Navbar() {
             </Link>
             <Link 
               href="/vote" 
-              className="text-gray-700 hover:text-(--purple-primary) font-medium transition-colors"
+              className="text-gray-700 hover:text-purple-primary font-medium transition-colors"
             >
               Vote
             </Link>

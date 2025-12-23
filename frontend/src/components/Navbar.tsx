@@ -22,7 +22,7 @@ export function Navbar() {
           <div className="hidden md:flex items-center gap-8">
             <Link 
               href="/" 
-              className="text-gray-700 hover:text-(--purple-primary) font-medium transition-colors"
+              className="text-gray-700 hover:text-purple-primary font-medium transition-colors"
             >
               Home
             </Link>

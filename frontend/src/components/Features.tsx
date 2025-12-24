@@ -39,10 +39,10 @@ export function Features() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
         <div className="text-center mb-16">
-          <div className="inline-block px-4 py-2 bg-(--purple-bg) rounded-full mb-4">
-            <span className="text-sm font-semibold text-(--purple-primary)">FEATURES</span>
+          <div className="inline-block px-4 py-2 bg-purple-bg rounded-full mb-4">
+            <span className="text-sm font-semibold text-purple-primary">FEATURES</span>
           </div>
-          <h2 className="heading-xl text-(--purple-deep) mb-4">
+          <h2 className="heading-xl text-purple-deep mb-4">
             Why Choose QuickVote?
           </h2>
           <p className="text-lead text-gray-600 max-w-3xl mx-auto">
@@ -60,13 +60,13 @@ export function Features() {
             >
               {/* Icon with Gradient Background */}
               <div className="mb-6">
-                <div className="inline-flex p-4 rounded-xl bg-gradient-to-br from-(--purple-primary) to-(--purple-light) shadow-lg group-hover:shadow-xl transition-shadow">
+                <div className="inline-flex p-4 rounded-xl bg-linear-to-br from-purple-primary to-purple-light shadow-lg group-hover:shadow-xl transition-shadow">
                   <feature.icon className="w-8 h-8 text-white" />
                 </div>
               </div>
 
               {/* Content */}
-              <h3 className="text-xl font-bold text-(--purple-deep) mb-3">
+              <h3 className="text-xl font-bold text-purple-deep mb-3">
                 {feature.title}
               </h3>
               <p className="text-gray-600 leading-relaxed">
@@ -74,7 +74,7 @@ export function Features() {
               </p>
 
               {/* Decorative Corner Accent */}
-              <div className="absolute top-0 right-0 w-24 h-24 bg-gradient-to-br from-(--purple-light)/5 to-transparent rounded-bl-full -z-10"></div>
+              <div className="absolute top-0 right-0 w-24 h-24 bg-linear-to-br from-(--purple-light)/5 to-transparent rounded-bl-full -z-10"></div>
             </div>
           ))}
         </div>

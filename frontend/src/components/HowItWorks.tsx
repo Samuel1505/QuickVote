@@ -29,14 +29,14 @@ export function HowItWorks() {
   ]
 
   return (
-    <section className="py-20 bg-gradient-to-br from-(--purple-bg) via-white to-(--purple-bg)">
+    <section className="py-20 bg-linear-to-br from-purple-bg via-white to-purple-bg">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
         <div className="text-center mb-16">
           <div className="inline-block px-4 py-2 bg-white rounded-full mb-4 shadow-sm">
-            <span className="text-sm font-semibold text-(--purple-primary)">HOW IT WORKS</span>
+            <span className="text-sm font-semibold text-purple-primary">HOW IT WORKS</span>
           </div>
-          <h2 className="heading-xl text-(--purple-deep) mb-4">
+          <h2 className="heading-xl text-purple-deep mb-4">
             Voting Made Simple
           </h2>
           <p className="text-lead text-gray-600 max-w-3xl mx-auto">
@@ -47,7 +47,7 @@ export function HowItWorks() {
         {/* Steps */}
         <div className="relative">
           {/* Connection Line - Desktop */}
-          <div className="hidden lg:block absolute top-24 left-0 right-0 h-1 bg-gradient-to-r from-(--purple-light)/20 via-(--purple-primary)/40 to-(--purple-light)/20"></div>
+          <div className="hidden lg:block absolute top-24 left-0 right-0 h-1 bg-linear-to-r from-(--purple-light)/20 via-(--purple-primary)/40 to-(--purple-light)/20"></div>
 
           {/* Steps Grid */}
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8 relative">
@@ -59,19 +59,19 @@ export function HowItWorks() {
                 {/* Card */}
                 <div className="relative p-8 rounded-2xl bg-white border-2 border-(--purple-lighter)/20 hover:border-(--purple-primary)/40 transition-all duration-300 hover:shadow-xl group">
                   {/* Step Number */}
-                  <div className="absolute -top-4 -left-4 w-16 h-16 rounded-full bg-gradient-to-br from-(--purple-primary) to-(--purple-light) flex items-center justify-center shadow-lg">
+                  <div className="absolute -top-4 -left-4 w-16 h-16 rounded-full bg-linear-to-br from-purple-primary to-purple-light flex items-center justify-center shadow-lg">
                     <span className="text-2xl font-bold text-white">{step.number}</span>
                   </div>
 
                   {/* Icon */}
                   <div className="mb-6 pt-4">
-                    <div className="inline-flex p-4 rounded-xl bg-(--purple-bg) group-hover:bg-gradient-to-br group-hover:from-(--purple-primary)/10 group-hover:to-(--purple-light)/10 transition-all">
-                      <step.icon className="w-8 h-8 text-(--purple-primary)" />
+                    <div className="inline-flex p-4 rounded-xl bg-purple-bg group-hover:bg-linear-to-br group-hover:from-(--purple-primary)/10 group-hover:to-(--purple-light)/10 transition-all">
+                      <step.icon className="w-8 h-8 text-purple-primary" />
                     </div>
                   </div>
 
                   {/* Content */}
-                  <h3 className="text-xl font-bold text-(--purple-deep) mb-3">
+                  <h3 className="text-xl font-bold text-purple-deep mb-3">
                     {step.title}
                   </h3>
                   <p className="text-gray-600 leading-relaxed">
@@ -97,7 +97,7 @@ export function HowItWorks() {
           <p className="text-gray-600 mb-6">
             Ready to experience the future of voting?
           </p>
-          <button className="px-8 py-4 bg-gradient-to-r from-(--purple-primary) to-(--purple-light) text-white font-semibold rounded-lg hover:shadow-xl transition-all hover:-translate-y-0.5">
+          <button className="px-8 py-4 bg-linear-to-r from-purple-primary to-purple-light text-white font-semibold rounded-lg hover:shadow-xl transition-all hover:-translate-y-0.5">
             Get Started Now
           </button>
         </div>

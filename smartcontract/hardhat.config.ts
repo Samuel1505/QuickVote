@@ -25,13 +25,24 @@ const config: HardhatUserConfig = {
     sepolia: {
       url:
         ALCHEMY_SEPOLIA_API_KEY_URL || "https://sepolia.infura.io/v3/YOUR_KEY",
-      accounts: ACCOUNT_PRIVATE_KEY ? [`0x${ACCOUNT_PRIVATE_KEY}`] : [],
+      accounts: ACCOUNT_PRIVATE_KEY 
+        ? [ACCOUNT_PRIVATE_KEY.startsWith("0x") ? ACCOUNT_PRIVATE_KEY : `0x${ACCOUNT_PRIVATE_KEY}`]
+        : [],
       chainId: 11155111,
     },
     baseSepolia: {
       url: "https://sepolia.base.org",
-      accounts: ACCOUNT_PRIVATE_KEY ? [`0x${ACCOUNT_PRIVATE_KEY}`] : [],
+      accounts: ACCOUNT_PRIVATE_KEY 
+        ? [ACCOUNT_PRIVATE_KEY.startsWith("0x") ? ACCOUNT_PRIVATE_KEY : `0x${ACCOUNT_PRIVATE_KEY}`]
+        : [],
       chainId: 84532,
+    },
+    base: {
+      url: "https://mainnet.base.org",
+      accounts: ACCOUNT_PRIVATE_KEY 
+        ? [ACCOUNT_PRIVATE_KEY.startsWith("0x") ? ACCOUNT_PRIVATE_KEY : `0x${ACCOUNT_PRIVATE_KEY}`]
+        : [],
+      chainId: 8453,
     },
   },
   
@@ -46,9 +57,19 @@ const config: HardhatUserConfig = {
         browserURL: "https://sepolia.basescan.org",
       },
     },
+    {
+      network: "base",
+      chainId: 8453,
+      urls: {
+        apiURL: "https://api.basescan.org/api",
+        browserURL: "https://basescan.org",
+      },
+    },
   ],
 },
 
 };
 
 export default config;
+
+// 0xEB9E7cd23A933310e4FA1AFc46121B4654656611(base mainnet  )
